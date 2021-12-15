@@ -10,6 +10,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.bumptech.glide.Glide;
+
 import kg.geektech.android3.App;
 import kg.geektech.android3.data.model.Film;
 import kg.geektech.android3.databinding.FragmentDetailBinding;
@@ -46,6 +48,7 @@ public class DetailFragment extends Fragment {
                     binding.oriTitle.setText(response.body().getOriginalTitle());
                     binding.description.setText(response.body().getDescription());
                     binding.release.setText(response.body().getReleaseDate());
+                    Glide.with(requireContext()).load(response.body().getImage()).into(binding.iv);
                 }
             }
 
@@ -53,7 +56,6 @@ public class DetailFragment extends Fragment {
             public void onFailure(Call<Film> call, Throwable t) {
             }
         });
-
 
     }
 }

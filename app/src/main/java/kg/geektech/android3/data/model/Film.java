@@ -10,6 +10,11 @@ public class Film {
     String originalTitle;
     @SerializedName("release_date")
     String releaseDate;
+    String image;
+
+    public String getImage() {
+        return image;
+    }
 
     public String getOriginalTitle() {
         return originalTitle;
